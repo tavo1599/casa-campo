@@ -30,7 +30,7 @@ const services = [
     icon: security,
   },
   {
-    title: 'Television',
+    title: 'Televisión',
     description: 'Entretenimiento, peliculas y musica en los televisores smart tv.',
     icon: television,
   },
