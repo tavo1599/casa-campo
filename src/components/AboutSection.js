@@ -3,9 +3,9 @@ import backgroundImage from '../assets/logo-arequipa-remove.png'; // Asegúrate 
 
 const AboutSection = () => {
   return (
-    <div className="relative w-full py-10 bg-amber-900 text-white">
+    <div className="relative w-full py-10  text-black">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div className="flex-1 md:w-1/2 mb-6 md:mb-0">
+        <div className="flex-1 md:w-1/2 mb-6 md:mb-0 font-serif">
           <h2 className="text-3xl font-medium mb-6">Descubre Casa Campo Arequipa</h2>
           <p className="text-lg md:text-xl mb-4">
             Ubicado en el corazón de Arequipa, Casa Campo Arequipa ofrece una experiencia única de estadía rodeado de la belleza natural. te invitamos a desconectar de la rutina diaria y sumergirte en un entorno tranquilo lleno de árboles y vegetación exuberante.

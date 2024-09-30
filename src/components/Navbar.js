@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaUser, FaGlobe } from 'react-icons/fa'; // Iconos de usuario y lenguaje
-import { Link } from 'react-router-dom'; // Importa Link para la navegación
+import { FaUser } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import logo from '../assets/logo-arequipa-remove.png';
 
 const Navbar = ({ currentLanguage, toggleLanguage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const menuRef = useRef(null);
+  const location = useLocation(); // Get current location
 
-  // Función para alternar el estado del menú
+  // Toggle the state of the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Cerrar el menú cuando se hace clic fuera del mismo
+  // Close the menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -26,32 +28,56 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
     };
   }, [menuRef]);
 
+  // Effect to change the background and color of the navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/';
+
   return (
-    <nav className="w-full flex items-center justify-between p-4 bg-amber-900 text-white relative sticky top-0 z-50">
-      {/* Parte izquierda: Logo */}
+    <nav
+      className={`${
+        isHomePage ? 'fixed' : 'relative'
+      } w-full flex items-center justify-between p-4 top-0 z-50 transition-all duration-800 ${
+        isHomePage
+          ? scrollPosition > 0
+            ? 'bg-white text-black shadow-lg'
+            : 'bg-transparent text-white'
+          : 'bg-white text-black shadow-lg' // White background on other pages
+      }`}
+    >
+      {/* Left part: Logo */}
       <div className="flex items-center">
         <Link to="/">
-          <img src={logo} alt="Logo" className="h-16 w-16 object-cover cursor-pointer" />
+          <img src={logo} alt="Logo" className="h-28 w-28 object-cover cursor-pointer" />
         </Link>
       </div>
 
-      {/* Parte central: Texto "Casa Campo" y "Arequipa" con tamaño adaptativo */}
+      {/* Center part: Text "Casa Campo" and "Arequipa" */}
       <div className="flex flex-col items-center cursor-pointer">
         <Link to="/">
-          <h1 className="text-xl md:text-4xl font-bold leading-tight font-serif">Casa Campo</h1>
+          <h1 className="text-xl md:text-4xl font-bold leading-tight font-serif">
+            Casa Campo
+          </h1>
         </Link>
         <span className="text-sm md:text-xl font-semibold">Arequipa</span>
       </div>
 
-      {/* Parte derecha: Iconos de usuario y lenguaje */}
+      {/* Right part: User icons */}
       <div className="relative flex items-center space-x-4">
-        {/* Icono de lenguaje */}
-        <FaGlobe className="text-2xl cursor-pointer" onClick={toggleLanguage} />
-
-        {/* Icono de usuario */}
+        {/* User icon */}
         <FaUser className="text-2xl cursor-pointer" onClick={toggleMenu} />
 
-        {/* Menú desplegable */}
+        {/* Dropdown menu */}
         {isMenuOpen && (
           <div ref={menuRef} className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10 top-full">
             <ul className="py-2">

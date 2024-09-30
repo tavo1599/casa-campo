@@ -8,9 +8,15 @@ import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import './index.css';
 import CabinDetail from './components/CabinDetail';
-import Dashboard from './pages/Dashboard';
+import DashboardLayout from './pages/DashboardLayout'; // Importa DashboardLayout
+import Usuarios from './components/Usuarios'; // Importa el componente Usuarios
+import './index.css';
+import Cabanas from './components/Cabanas';
+import Promociones from './components/Promociones';
+import Descuentos from './components/Descuentos';
+import Reservas from './components/Reservas';
+import SocialMediaIcons from './components/SocialMediaIcons';
 
 function App() {
   return (
@@ -18,14 +24,24 @@ function App() {
       <div className="App">
         {/* Navbar */}
         <Navbar />
+        
 
         {/* Rutas de las páginas */}
         <Routes>
-          <Route path="/" element={<><WelcomeSection /><CabinCards /><ServicesSection /><AboutSection /></>} />
-          <Route path="/cabin-detail" element={<CabinDetail />} />
+          {/* Rutas públicas */}
+          <Route path="/" element={<><WelcomeSection /><CabinCards /><ServicesSection /><AboutSection /><SocialMediaIcons /></>} />
+          <Route path="/cabin-detail" element={<><CabinDetail /><SocialMediaIcons /></>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* Dashboard con Sidebar persistente */}
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="usuarios" element={<Usuarios />} />
+            <Route path="cabanas" element={<Cabanas />} />
+            <Route path="promociones" element={<Promociones />} />
+            <Route path="descuentos" element={<Descuentos />} />
+            <Route path="reservas" element={<Reservas />} />
+          </Route>
         </Routes>
 
         <Footer />

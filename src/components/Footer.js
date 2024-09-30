@@ -6,7 +6,7 @@ import tiktokIcon from '../assets/tiktok.png'; // Asegúrate de tener un ícono 
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center font-serif">
         <div className="flex justify-center mb-4">
           <a href="https://www.facebook.com/profile.php?id=61564315336410&locale=es_LA" target="_blank" rel="noopener noreferrer" className="mx-3">
             <img src={facebookIcon} alt="Facebook" className="h-8 w-8" />
@@ -18,10 +18,22 @@ const Footer = () => {
             <img src={tiktokIcon} alt="TikTok" className="h-8 w-8" />
           </a>
         </div>
-        <div className="mb-4">
-          <p className="text-lg">Teléfono: +51 906771606</p>
-          <p className="text-lg">Correo: contacto@casacampoarequipa.com</p>
-        </div>
+        <div className="mb-4 font-serif">
+  <a
+    href="https://api.whatsapp.com/send?phone=51987563711&text=Hola,%20Casa%20campo%20Arequipa"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block mb-2" // Añadir clase para hacer que cada enlace sea un bloque
+  >
+    Teléfono: +51987563711
+  </a>
+  <a
+    href="mailto:arequipacasacampo@gmail.com?subject=Informacion&body=Hola, Casa campo Arequipa"
+    className="block" // También aquí para que sea un bloque
+  >
+    Correo: arequipacasacampo@gmail.com
+  </a>
+</div>
         <p className="text-sm">© {new Date().getFullYear()} Casa Campo Arequipa. Todos los derechos reservados.</p>
         <p>Desarrollado por Grupo Peanuts</p>
       </div>
