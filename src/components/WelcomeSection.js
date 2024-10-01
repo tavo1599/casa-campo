@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../assets/casa-campo.jpg'; // Importa la imagen de fondo
+import backgroundImage from '../assets/casa-campo.jpg';
 
 
 
@@ -10,7 +10,6 @@ const WelcomeSection = () => {
       className="relative w-full h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      {/* Texto superpuesto */}
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div className="text-center text-white px-4">
             

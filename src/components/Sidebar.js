@@ -1,8 +1,8 @@
-// src/components/Sidebar.js
+
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaUser, FaCalendarAlt, FaTag, FaPercent, FaChartLine } from 'react-icons/fa'; // Iconos
+import { FaHome, FaUser, FaCalendarAlt, FaTag, FaPercent, FaChartLine } from 'react-icons/fa'; 
 
 
 const Sidebar = () => {

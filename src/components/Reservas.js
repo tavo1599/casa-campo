@@ -1,12 +1,12 @@
-// src/components/Reservas.js
+
 import React, { useState } from 'react';
 
 const Reservas = () => {
-  const [currentPage, setCurrentPage] = useState(1); // Estado para la página actual
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Estado para el número de elementos por página
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [itemsPerPage, setItemsPerPage] = useState(5); 
+  const [searchTerm, setSearchTerm] = useState(''); 
 
-  // Datos de ejemplo de reservas (puedes cambiarlos o conectarlo a tu base de datos)
+
   const reservasData = [
     { id: 1, nombre: 'Reserva 1', fecha: '2024-09-10', cabaña: 'Cabaña A', estado: 'Confirmada' },
     { id: 2, nombre: 'Reserva 2', fecha: '2024-09-11', cabaña: 'Cabaña B', estado: 'Pendiente' },
@@ -14,20 +14,19 @@ const Reservas = () => {
     { id: 4, nombre: 'Reserva 4', fecha: '2024-09-13', cabaña: 'Cabaña D', estado: 'Confirmada' },
     { id: 5, nombre: 'Reserva 5', fecha: '2024-09-14', cabaña: 'Cabaña E', estado: 'Pendiente' },
     { id: 6, nombre: 'Reserva 6', fecha: '2024-09-15', cabaña: 'Cabaña F', estado: 'Confirmada' },
-    // Agrega más reservas si es necesario
+   
   ];
 
-  // Filtrar reservas por búsqueda
+ 
   const filteredReservas = reservasData.filter((reserva) =>
     reserva.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Calcular el índice inicial y final de los elementos a mostrar en la página actual
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentReservas = filteredReservas.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Cambiar página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -47,7 +46,6 @@ const Reservas = () => {
         </div>
       </div>
 
-      {/* Renderiza la tabla de reservas */}
       <div className="table-view">
         <table className="w-full table-auto border-collapse">
           <thead>
@@ -80,7 +78,6 @@ const Reservas = () => {
         </table>
       </div>
 
-      {/* Paginación */}
       <div className="pagination mt-4 flex justify-between items-center">
         <div>
           <select

@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../assets/logo-arequipa-remove.png'; // Asegúrate de tener una imagen en assets
+import backgroundImage from '../assets/logo-arequipa-remove.png';
 
 const AboutSection = () => {
   return (

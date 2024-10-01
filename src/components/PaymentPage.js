@@ -4,20 +4,20 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const PaymentPage = () => {
   const location = useLocation();
   const { cabin, dates, guests, total } = location.state || {};
-  const [editedDates, setEditedDates] = useState(dates); // Estado para fechas editables
-  const [editedGuests, setEditedGuests] = useState(guests); // Estado para huéspedes editables
-  const [finalTotal, setFinalTotal] = useState(total); // Estado para el total final
+  const [editedDates, setEditedDates] = useState(dates); 
+  const [editedGuests, setEditedGuests] = useState(guests); 
+  const [finalTotal, setFinalTotal] = useState(total); 
 
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    // Implementar funcionalidad de edición si es necesario
+
     alert('Funcionalidad de edición a implementar.');
   };
 
   return (
     <div className="container mx-auto px-10 py-10 font-lato flex">
-      {/* Cambiar los anchos a la mitad para ambos lados */}
+      
       <div className="w-1/2 mr-10">
         <h1 className="text-4xl font-bold mb-2">Confirmacion y Pago</h1>
         <p className="text-lg mb-4">¡Listo para disfrutar de una experiencia inolvidable en nuestra cabaña!</p>

@@ -1,12 +1,12 @@
 // src/components/Cabanas.js
 import React, { useState } from 'react';
-import { FaTable, FaTh } from 'react-icons/fa'; // Importamos los iconos de tabla y grid para cambiar de vista
+import { FaTable, FaTh } from 'react-icons/fa'; 
 
 const Cabanas = () => {
-  const [isTableView, setIsTableView] = useState(true); // Estado para alternar entre la vista de tabla y cards
+  const [isTableView, setIsTableView] = useState(true); 
 
   const toggleView = () => {
-    setIsTableView(!isTableView); // Alterna la vista entre tabla y cards
+    setIsTableView(!isTableView); 
   };
 
   return (
@@ -38,10 +38,9 @@ const Cabanas = () => {
         </div>
       </div>
 
-      {/* Renderiza la vista de tabla o de cards dependiendo del estado */}
       {isTableView ? (
         <div className="table-view">
-          {/* Tabla de cabañas */}
+
           <table className="w-full table-auto border-collapse">
             <thead>
               <tr className="bg-gray-200">
@@ -65,13 +64,11 @@ const Cabanas = () => {
                   </button>
                 </td>
               </tr>
-              {/* Puedes agregar más filas aquí */}
             </tbody>
           </table>
         </div>
       ) : (
         <div className="cards-view grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Cards de cabañas */}
           <div className="card bg-white shadow-lg p-4 rounded-lg">
             <h2 className="font-bold text-lg mb-2">Cabaña 1</h2>
             <p>Capacidad: 4 Personas</p>
@@ -80,7 +77,6 @@ const Cabanas = () => {
               Ver detalles
             </button>
           </div>
-          {/* Puedes agregar más cards aquí */}
         </div>
       )}
     </div>

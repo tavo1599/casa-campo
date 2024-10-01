@@ -1,15 +1,15 @@
-// src/components/Usuarios.js
+
 
 import React, { useState, useEffect } from 'react';
 
 const Usuarios = () => {
-  // Estado para los usuarios, la búsqueda, la paginación y el número de usuarios a mostrar por página
+  
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(5);
 
-  // Simulación de datos de usuarios
+
   useEffect(() => {
     const fetchUsuarios = () => {
       const dummyUsers = [
@@ -19,29 +19,28 @@ const Usuarios = () => {
         { id: 4, nombre: 'Lucía Torres', email: 'lucia@example.com' },
         { id: 5, nombre: 'Carlos Fernández', email: 'carlos@example.com' },
         { id: 6, nombre: 'María López', email: 'maria@example.com' },
-        // Agrega más usuarios según sea necesario...
+        
       ];
       setUsuarios(dummyUsers);
     };
     fetchUsuarios();
   }, []);
 
-  // Filtrar los usuarios según el término de búsqueda
+  
   const filteredUsers = usuarios.filter((user) =>
     user.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Obtener los usuarios actuales para la página
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
 
-  // Cambiar de página
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="p-8 font-serif">
-      {/* Barra de búsqueda y botón de agregar */}
+    
       <div className="flex justify-between items-center mb-4">
         <input
           type="text"
@@ -55,7 +54,6 @@ const Usuarios = () => {
         </button>
       </div>
 
-      {/* Tabla de usuarios */}
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
@@ -77,9 +75,7 @@ const Usuarios = () => {
         </tbody>
       </table>
 
-      {/* Paginación */}
       <div className="flex justify-between items-center mt-4">
-        {/* Filtro de número de usuarios por página */}
         <select
           className="p-2 border border-gray-300 rounded"
           value={usersPerPage}
@@ -90,7 +86,6 @@ const Usuarios = () => {
           <option value="15">15 por página</option>
         </select>
 
-        {/* Botones de paginación */}
         <div>
           {[...Array(Math.ceil(filteredUsers.length / usersPerPage)).keys()].map((number) => (
             <button

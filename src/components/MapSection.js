@@ -7,8 +7,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -16.409, // Coordenada de ejemplo, reemplaza con la ubicación exacta
-  lng: -71.537, // Coordenada de ejemplo, reemplaza con la ubicación exacta
+  lat: -16.409,
+  lng: -71.537,
 };
 
 const MapSection = () => {

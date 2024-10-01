@@ -1,6 +1,6 @@
   import React, { useEffect, useState } from 'react';
-  import { useLocation, useNavigate } from 'react-router-dom'; // Import useLocation to get state from navigation
-  import Calendar from 'react-calendar'; // Import calendar component for date selection
+  import { useLocation, useNavigate } from 'react-router-dom';
+  import Calendar from 'react-calendar';
 
   const CabinDetail = () => {
 
@@ -34,14 +34,14 @@
 
         const location = useLocation();
         const navigate = useNavigate();
-        const cabin = location.state?.cabin || {}; // Get cabin details from navigation state
-        const [dates, setDates] = useState([new Date(), new Date()]); // State for selected dates
-        const [guests, setGuests] = useState({ adults: 1, children: 0, babies: 0 }); // State for guests
-        const [promoCode, setPromoCode] = useState(""); // State for promo code
-        const [isGuestDropdownOpen, setIsGuestDropdownOpen] = useState(false); // State for guests dropdown
+        const cabin = location.state?.cabin || {};
+        const [dates, setDates] = useState([new Date(), new Date()]);
+        const [guests, setGuests] = useState({ adults: 1, children: 0, babies: 0 });
+        const [promoCode, setPromoCode] = useState("");
+        const [isGuestDropdownOpen, setIsGuestDropdownOpen] = useState(false);
       
         useEffect(() => {
-          window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+          window.scrollTo(0, 0);
         }, []);
       
         const handleDateChange = (dates) => {
@@ -49,22 +49,20 @@
         };
       
         const calculateTotal = () => {
-          const numberOfNights = (dates[1] - dates[0]) / (1000 * 60 * 60 * 24); // Calculate number of nights
+          const numberOfNights = (dates[1] - dates[0]) / (1000 * 60 * 60 * 24);
           return numberOfNights * cabin.price;
         };
       
-        const numberOfNights = (dates[1] - dates[0]) / (1000 * 60 * 60 * 24); // Calculate number of nights for display
+        const numberOfNights = (dates[1] - dates[0]) / (1000 * 60 * 60 * 24);
       
-        // Function to get tile class names based on selected dates
         const tileClassName = ({ date, view }) => {
           if (view === 'month') {
-            // Check if date is within selected range
             const isStartDate = dates[0] && date.toDateString() === dates[0].toDateString();
             const isEndDate = dates[1] && date.toDateString() === dates[1].toDateString();
             const isWithinRange = dates[0] && dates[1] && date >= dates[0] && date <= dates[1];
             
             if (isStartDate || isEndDate || isWithinRange) {
-              return 'bg-orange-700 text-white rounded-lg'; // Highlight selected dates
+              return 'bg-orange-700 text-white rounded-lg';
             }
           }
           return '';
@@ -84,7 +82,7 @@
 
         const handleReservation = () => {
           const total = calculateTotal();
-          navigate('/pago', { state: { dates, guests, total } }); // Redirect to Payment page with reservation details
+          navigate('/pago', { state: { dates, guests, total } });
         };
 
         
@@ -112,7 +110,7 @@
                 selectRange
                 onChange={handleDateChange}
                 value={dates}
-                tileClassName={tileClassName} // Apply custom tile class names
+                tileClassName={tileClassName}
               />
               <p className="mt-4 text-lg font-bold">
                 Precio por noche: S/{cabin.price.toFixed(2)} <br />
@@ -120,7 +118,6 @@
                 <span className="text-gray-600">Total a Pagar: S/{calculateTotal().toFixed(2)}</span>
               </p>
 
-              {/* Dropdown for selecting guests */}
               <div className="relative ">
                 <button
                   className="mt-2 w-full text-left  px-4 py-2 rounded-lg border"
@@ -189,7 +186,6 @@
                   </div>
                 )}
               </div>
-              {/* Campo para código promocional */}
               <div className="mt-2 flex items-center">
               <input
                 type="text"

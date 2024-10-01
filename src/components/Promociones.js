@@ -1,4 +1,4 @@
-// src/components/Promociones.js
+
 import React from 'react';
 
 const Promociones = () => {
@@ -17,7 +17,6 @@ const Promociones = () => {
         </div>
       </div>
 
-      {/* Renderiza la tabla de promociones */}
       <div className="table-view">
         <table className="w-full table-auto border-collapse">
           <thead>
@@ -42,7 +41,6 @@ const Promociones = () => {
                 </button>
               </td>
             </tr>
-            {/* Agrega más filas aquí si es necesario */}
           </tbody>
         </table>
       </div>

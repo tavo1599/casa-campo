@@ -53,7 +53,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <div className="py-12 text-black border-t border-b border-gray-300 max-w-7xl mx-auto"> {/* Se agregan bordes superior e inferior */}
+    <div className="py-12 text-black border-t border-b border-gray-300 max-w-7xl mx-auto"> 
       <div className="container mx-auto px-4 text-center ">
         <h2 className="text-4xl font-medium mb-8">Servicios que Ofrecemos</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

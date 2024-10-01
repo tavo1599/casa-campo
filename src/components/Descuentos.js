@@ -17,7 +17,6 @@ const Descuentos = () => {
         </div>
       </div>
 
-      {/* Renderiza la tabla de descuentos */}
       <div className="table-view">
         <table className="w-full table-auto border-collapse rounded-lg">
           <thead>
@@ -42,7 +41,6 @@ const Descuentos = () => {
                 </button>
               </td>
             </tr>
-            {/* Agrega más filas aquí si es necesario */}
           </tbody>
         </table>
       </div>

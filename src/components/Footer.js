@@ -1,7 +1,7 @@
 import React from 'react';
-import facebookIcon from '../assets/facebook.png'; // Asegúrate de tener un ícono en assets
-import instagramIcon from '../assets/instagram.png'; // Asegúrate de tener un ícono en assets
-import tiktokIcon from '../assets/tiktok.png'; // Asegúrate de tener un ícono en assets
+import facebookIcon from '../assets/facebook.png';
+import instagramIcon from '../assets/instagram.png';
+import tiktokIcon from '../assets/tiktok.png';
 
 const Footer = () => {
   return (
@@ -23,13 +23,13 @@ const Footer = () => {
     href="https://api.whatsapp.com/send?phone=51987563711&text=Hola,%20Casa%20campo%20Arequipa"
     target="_blank"
     rel="noopener noreferrer"
-    className="block mb-2" // Añadir clase para hacer que cada enlace sea un bloque
+    className="block mb-2"
   >
     Teléfono: +51987563711
   </a>
   <a
     href="mailto:arequipacasacampo@gmail.com?subject=Informacion&body=Hola, Casa campo Arequipa"
-    className="block" // También aquí para que sea un bloque
+    className="block"
   >
     Correo: arequipacasacampo@gmail.com
   </a>

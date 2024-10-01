@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom'; // Import useLocation
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo-arequipa-remove.png';
 
 const Navbar = ({ currentLanguage, toggleLanguage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const menuRef = useRef(null);
-  const location = useLocation(); // Get current location
+  const location = useLocation(); 
 
-  // Toggle the state of the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Close the menu when clicking outside of it
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -28,7 +27,6 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
     };
   }, [menuRef]);
 
-  // Effect to change the background and color of the navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -40,7 +38,6 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
     };
   }, []);
 
-  // Check if we're on the home page
   const isHomePage = location.pathname === '/';
 
   return (
@@ -52,32 +49,31 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
           ? scrollPosition > 0
             ? 'bg-white text-black shadow-lg rounded-b-xl'
             : 'bg-transparent text-white'
-          : 'bg-white text-black shadow-lg' // White background on other pages
+          : 'bg-white text-black shadow-lg'
       }`}
     >
-      {/* Left part: Logo */}
-      <div className="flex items-center mr-2">
+      <div className="flex items-center">
         <Link to="/">
-          <img src={logo} alt="Logo" className="h-28 w-28 object-cover cursor-pointer" />
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-12 w-12 object-cover cursor-pointer sm:h-20 sm:w-20 md:h-28 md:w-28"
+          />
         </Link>
       </div>
 
-      {/* Center part: Text "Casa Campo" and "Arequipa" */}
-      <div className="flex flex-col items-center cursor-pointer">
+      <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center cursor-pointer">
         <Link to="/">
-          <h1 className="text-xl md:text-5xl font-bold leading-tight font-serif text-red-800">
+          <h1 className="text-sm sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight font-serif text-red-800">
             Casa Campo
           </h1>
         </Link>
-        <span className="text-sm md:text-xl font-semibold">Arequipa</span>
+        <span className="text-xs sm:text-lg md:text-xl font-semibold">Arequipa</span>
       </div>
 
-      {/* Right part: User icons */}
-      <div className="relative flex items-center space-x-4 ml-24">
-        {/* User icon */}
+      <div className="relative flex items-center space-x-4 ml-auto">
         <FaUser className="text-2xl cursor-pointer" onClick={toggleMenu} />
 
-        {/* Dropdown menu */}
         {isMenuOpen && (
           <div ref={menuRef} className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10 top-full">
             <ul className="py-2">
