@@ -31,7 +31,7 @@ const Reservas = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="reservas-container">
+    <div className="reservas-container font-serif p-8">
       <div className="flex justify-between items-center mb-4">
         <input
           type="text"
@@ -41,7 +41,7 @@ const Reservas = () => {
           className="p-2 border rounded-lg w-1/3"
         />
         <div className="flex space-x-4">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+          <button className=" text-black p-2 rounded border border-black hover:bg-green-800 hover:text-white">
             Agregar Reserva
           </button>
         </div>
@@ -83,7 +83,6 @@ const Reservas = () => {
       {/* Paginación */}
       <div className="pagination mt-4 flex justify-between items-center">
         <div>
-          <span>Mostrar </span>
           <select
             value={itemsPerPage}
             onChange={(e) => setItemsPerPage(Number(e.target.value))}
@@ -93,15 +92,14 @@ const Reservas = () => {
             <option value={10}>10</option>
             <option value={15}>15</option>
           </select>
-          <span> por página</span>
         </div>
         <div className="flex space-x-2">
           {Array.from({ length: Math.ceil(filteredReservas.length / itemsPerPage) }, (_, index) => (
             <button
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-4 py-2 rounded-lg ${
-                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
+              className={`px-2 py-2 rounded-md ${
+                currentPage === index + 1 ? ' text-black' : 'bg-gray-200'
               }`}
             >
               {index + 1}

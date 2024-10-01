@@ -36,12 +36,12 @@ const services = [
   },
   {
     title: 'Piscina',
-    description: 'Toma una ducha y sumérgete en la piscina disfrutando la vista y el sol.',
+    description: 'Piscina al aire libre privada - abierto las 24 horas.',
     icon: piscina,
   },
   {
     title: 'Cocina',
-    description: 'Conviértete en el mejor chef y prepara los mejores bocadillos.',
+    description: 'Los huéspedes pueden cocinar en este espacio',
     icon: cocina,
   },
   {

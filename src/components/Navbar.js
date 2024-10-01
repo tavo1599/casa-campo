@@ -50,13 +50,13 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
       } w-full flex items-center justify-between p-4 top-0 z-50 transition-all duration-800 ${
         isHomePage
           ? scrollPosition > 0
-            ? 'bg-white text-black shadow-lg'
+            ? 'bg-white text-black shadow-lg rounded-b-xl'
             : 'bg-transparent text-white'
           : 'bg-white text-black shadow-lg' // White background on other pages
       }`}
     >
       {/* Left part: Logo */}
-      <div className="flex items-center">
+      <div className="flex items-center mr-2">
         <Link to="/">
           <img src={logo} alt="Logo" className="h-28 w-28 object-cover cursor-pointer" />
         </Link>
@@ -65,7 +65,7 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
       {/* Center part: Text "Casa Campo" and "Arequipa" */}
       <div className="flex flex-col items-center cursor-pointer">
         <Link to="/">
-          <h1 className="text-xl md:text-4xl font-bold leading-tight font-serif">
+          <h1 className="text-xl md:text-5xl font-bold leading-tight font-serif text-red-800">
             Casa Campo
           </h1>
         </Link>
@@ -73,7 +73,7 @@ const Navbar = ({ currentLanguage, toggleLanguage }) => {
       </div>
 
       {/* Right part: User icons */}
-      <div className="relative flex items-center space-x-4">
+      <div className="relative flex items-center space-x-4 ml-24">
         {/* User icon */}
         <FaUser className="text-2xl cursor-pointer" onClick={toggleMenu} />
 

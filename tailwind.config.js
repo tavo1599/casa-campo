@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Kalnia', 'serif'], // Define la nueva fuente
+        sans: ['Kalnia', 'serif'], // Mantén tu fuente existente
+        lato: ['Lato', 'sans-serif'], // Define la nueva fuente
       },
     },
   },

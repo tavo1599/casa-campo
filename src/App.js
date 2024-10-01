@@ -17,6 +17,8 @@ import Promociones from './components/Promociones';
 import Descuentos from './components/Descuentos';
 import Reservas from './components/Reservas';
 import SocialMediaIcons from './components/SocialMediaIcons';
+import PaymentPage from './components/PaymentPage';
+
 
 function App() {
   return (
@@ -24,13 +26,12 @@ function App() {
       <div className="App">
         {/* Navbar */}
         <Navbar />
-        
-
-        {/* Rutas de las páginas */}
+        {/* Rutas de las páginas */} 
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<><WelcomeSection /><CabinCards /><ServicesSection /><AboutSection /><SocialMediaIcons /></>} />
           <Route path="/cabin-detail" element={<><CabinDetail /><SocialMediaIcons /></>} />
+          <Route path="/pago" element={<PaymentPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
@@ -47,6 +48,8 @@ function App() {
         <Footer />
       </div>
     </Router>
+
+    
   );
 }
 

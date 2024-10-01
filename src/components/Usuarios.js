@@ -50,7 +50,7 @@ const Usuarios = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className=" text-black p-2 rounded border border-black hover:bg-yellow-800 hover:text-white">
+        <button className=" text-black p-2 rounded border border-black hover:bg-green-800 hover:text-white">
           Agregar Usuario
         </button>
       </div>
@@ -96,7 +96,7 @@ const Usuarios = () => {
             <button
               key={number + 1}
               onClick={() => paginate(number + 1)}
-              className={`px-3 py-1 mx-1 border ${currentPage === number + 1 ? 'bg-blue-500 text-white' : 'bg-white text-black'} border-gray-300 rounded`}
+              className={`px-2 py-2 mx-1 ${currentPage === number + 1 ? ' text-black' : 'bg-gray-300 text-black rounded-md'}`}
             >
               {number + 1}
             </button>
