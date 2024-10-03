@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import backgroundImage from '../assets/casa-campo.jpg';
 
-
-
 const WelcomeSection = () => {
+
+  // eslint-disable-next-line no-unused-vars
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Control de desplazamiento para detectar el scroll
+  window.addEventListener('scroll', () => {
+    setScrollPosition(window.scrollY);
+  });
+
+  // Función para manejar el desplazamiento suave
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <div
@@ -19,7 +33,7 @@ const WelcomeSection = () => {
           <p className="mt-4 text-lg md:text-2xl font-serif">
             Donde viviras una experiencia inolvidable
           </p>
-          <button className="mt-8 px-8 py-4 bg-emerald-800 hover:bg-orange-800 text-white font-bold rounded-full text-xl">
+          <button  onClick={() => scrollToSection('cabins')} className="mt-8 px-8 py-4 bg-emerald-800 hover:bg-orange-800 text-white font-bold rounded-full text-xl">
             Reservas
           </button>
         </div>
