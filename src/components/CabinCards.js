@@ -21,13 +21,14 @@ const CabinCards = () => {
     <div className="relative" ref={sectionRef}>
       <div className="container mx-auto relative z-10">
         <div className="flex justify-center mb-8">
-          <div className="flex flex-col md:flex-row bg-white px-6 py-3 gap-4 md:rounded-full border shadow-lg w-full max-w-3xl items-center">
+          <div className="px-fecha-ES flex flex-col md:flex-row bg-white py-3 gap-4 md:rounded-full border shadow-lg w-full max-w-3xl items-center">
             <div className="flex gap-4 text-sm w-full items-center">
               <div className="flex flex-col md:flex-row items-center gap-2 w-full">
-                <label htmlFor="checkin" className="font-medium">
+                <label htmlFor="fecha_ingreso" className="font-medium">
                   {translations.fecha_ingreso}
                 </label>
                 <input
+                  id="fecha_ingreso"
                   type="date"
                   className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
                 />
@@ -36,10 +37,11 @@ const CabinCards = () => {
               <div className="hidden md:block border h-8 mx-2"></div>
 
               <div className="flex flex-col md:flex-row items-center gap-2 w-full">
-                <label htmlFor="checkout" className="font-medium">
+                <label htmlFor="fecha_salida" className="font-medium">
                   {translations.fecha_salida}
                 </label>
                 <input
+                  id="fecha_salida"
                   type="date"
                   className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
                 />

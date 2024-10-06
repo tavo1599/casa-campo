@@ -85,7 +85,12 @@ html {
 footer {
   /*background: linear-gradient(to right, rgb(255, 100, 100), rgb(100, 100, 255)); /* Degradado de rojo a azul */
   /*background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 255), rgb(255, 255, 255, 0.1)); /* Degradado de negro a azul con un poco de blanco */
-  background: linear-gradient(to right, rgb(29, 28, 28), rgba(153, 27, 27, 0.74), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(
+    to right,
+    rgb(29, 28, 28),
+    rgba(153, 27, 27, 0.74),
+    rgba(255, 255, 255, 0.1)
+  );
   /* background-image: url('/public/images/fondo-01.jpeg'); /* Asegúrate de que la ruta sea correcta */
   background-size: cover; /* Ajusta la imagen para que cubra todo el footer */
   background-position: center; /* Centra la imagen */
@@ -93,17 +98,34 @@ footer {
 }
 
 footer::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente para dar opacidad */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Color negro semi-transparente para dar opacidad */
   z-index: 1; /* Asegura que el overlay esté encima de la imagen */
 }
 
 footer > * {
   position: relative; /* Asegura que el contenido del footer esté encima del overlay */
   z-index: 2; /* Hace que el contenido esté por encima del overlay */
+}
+
+.px-fecha-ES {
+  padding-left: 1.5rem /* 24px */;
+  padding-right: 1.5rem /* 24px */;
+}
+
+@media (max-width: 440px) {
+  .px-fecha-ES {
+    padding-left: 0.05rem /* 24px */;
+    padding-right: 0.05rem /* 24px */;
+  }
 }

@@ -28,8 +28,8 @@ const WelcomeSection = () => {
     >
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div className="text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl font-serif py-4">
-            {translations.casa_campo_arequipa}
+          <h1 className="text-4xl md:text-6xl py-4 font-serif">
+            ¡Casa Campo Arequipa!
           </h1>
           <p className="mt-4 text-lg md:text-2xl font-serif">
             {translations.donde_viviras_una_experiencia_inolvidable}
