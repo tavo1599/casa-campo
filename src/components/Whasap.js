@@ -22,8 +22,8 @@ const Whasap = () => {
         rel="noreferrer"
       >
         <img
-          width="50"
-          height="50"
+          width="30"
+          height="30"
           className="boton"
           src="/images/wasap-v1-removebg-preview.png"
           alt=""

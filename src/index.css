@@ -9,6 +9,22 @@ html {
   font-weight: 300;
 }
 
+.responsive-link-polity {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+/* Media query para pantallas de 480px o menos */
+@media (max-width: 480px) {
+  .responsive-link-polity {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .container-boton {
   background-color: #2e6329;
   border: 1px solid #fff;
@@ -29,7 +45,7 @@ html {
 }
 
 .boton {
-  width: 3.5rem;
+  width: 2.5rem;
 }
 
 .mostrar {
@@ -64,4 +80,30 @@ html {
 .container-boton:hover .texto-emergente {
   right: 60px;
   opacity: 1;
+}
+
+footer {
+  /*background: linear-gradient(to right, rgb(255, 100, 100), rgb(100, 100, 255)); /* Degradado de rojo a azul */
+  /*background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 255), rgb(255, 255, 255, 0.1)); /* Degradado de negro a azul con un poco de blanco */
+  background: linear-gradient(to right, rgb(29, 28, 28), rgba(153, 27, 27, 0.74), rgba(255, 255, 255, 0.1));
+  /* background-image: url('/public/images/fondo-01.jpeg'); /* Asegúrate de que la ruta sea correcta */
+  background-size: cover; /* Ajusta la imagen para que cubra todo el footer */
+  background-position: center; /* Centra la imagen */
+  position: relative; /* Necesario para el pseudo-elemento */
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente para dar opacidad */
+  z-index: 1; /* Asegura que el overlay esté encima de la imagen */
+}
+
+footer > * {
+  position: relative; /* Asegura que el contenido del footer esté encima del overlay */
+  z-index: 2; /* Hace que el contenido esté por encima del overlay */
 }
