@@ -2,6 +2,7 @@
   "name": "portada",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.mymemory.translated.net",
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@react-google-maps/api": "^2.19.3",

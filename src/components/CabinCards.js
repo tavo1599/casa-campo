@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import cabana1 from "../assets/cabana1.jpg";
 import cabana2 from "../assets/cabana1.jpg";
+import { LanguageContext } from "./LanguageContext";
 
 const CabinCards = () => {
   const navigate = useNavigate();
@@ -14,16 +15,17 @@ const CabinCards = () => {
     }
   };
 
+  const { translations } = useContext(LanguageContext);
+
   return (
     <div className="relative" ref={sectionRef}>
       <div className="container mx-auto px-4 relative z-10">
-
         <div className="flex justify-center mb-8">
           <div className="px-6 py-3 bg-white flex gap-4 rounded-full border shadow-lg">
             <div className="flex gap-4 text-sm">
               <div className="flex flex-row items-center gap-2">
                 <label htmlFor="checkin" className="font-medium">
-                  Fecha de Ingreso
+                  {translations.fecha_ingreso}
                 </label>
                 <input
                   type="date"
@@ -35,7 +37,7 @@ const CabinCards = () => {
 
               <div className="flex flex-row items-center gap-2">
                 <label htmlFor="checkout" className="font-medium">
-                  Fecha de Salida
+                  {translations.fecha_salida}
                 </label>
                 <input
                   type="date"
@@ -47,7 +49,7 @@ const CabinCards = () => {
             <div className="border"></div>
             <button className="flex items-center justify-center gap-2 group bg-green-800 hover:bg-red-800 text-white font-bold py-2 px-3 rounded-full shadow-md duration-500">
               <i className="fa-solid fa-magnifying-glass"></i>
-              Buscar
+              {translations.buscar}
             </button>
           </div>
         </div>
