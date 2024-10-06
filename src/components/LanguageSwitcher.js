@@ -76,7 +76,7 @@ const LanguageSwitcher = () => {
   const { abbreviation, flag } = getAbbreviation(language);
 
   return (
-    <div ref={containerRef} style={styles.container}>
+    <div ref={containerRef} className="absolute right-14 bottom-[-5px] sm:right-auto sm:bottom-auto flex sm:relative items-center">
       {/* Icono del mundo */}
       <FaGlobe className="text-[2rem] cursor-pointer" />
 
@@ -158,12 +158,6 @@ const LanguageSwitcher = () => {
 };
 
 const styles = {
-  container: {
-    position: "relative", // Posición relativa para posicionar el modal
-    display: "flex",
-    alignItems: "center",
-    margin: "20px 0",
-  },
   abbreviation: {
     fontSize: "18px",
     fontWeight: "300",

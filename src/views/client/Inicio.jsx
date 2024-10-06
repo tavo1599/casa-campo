@@ -110,7 +110,7 @@ export default function Inicio() {
 
       <div id="cabins">
         <ColoredSection backgroundColor="#F3F5F4">
-          <section className="py-12 px-4">
+          <section className="pt-5 pb-5">
             <CabinCards />
           </section>
         </ColoredSection>

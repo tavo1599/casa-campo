@@ -19,34 +19,35 @@ const CabinCards = () => {
 
   return (
     <div className="relative" ref={sectionRef}>
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="flex justify-center mb-8">
-          <div className="px-6 py-3 bg-white flex gap-4 rounded-full border shadow-lg">
-            <div className="flex gap-4 text-sm">
-              <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-col md:flex-row bg-white px-6 py-3 gap-4 md:rounded-full border shadow-lg w-full max-w-3xl items-center">
+            <div className="flex gap-4 text-sm w-full items-center">
+              <div className="flex flex-col md:flex-row items-center gap-2 w-full">
                 <label htmlFor="checkin" className="font-medium">
                   {translations.fecha_ingreso}
                 </label>
                 <input
                   type="date"
-                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
                 />
               </div>
 
-              <div className="border"></div>
+              <div className="hidden md:block border h-8 mx-2"></div>
 
-              <div className="flex flex-row items-center gap-2">
+              <div className="flex flex-col md:flex-row items-center gap-2 w-full">
                 <label htmlFor="checkout" className="font-medium">
                   {translations.fecha_salida}
                 </label>
                 <input
                   type="date"
-                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
                 />
               </div>
             </div>
 
-            <div className="border"></div>
+            <div className="hidden md:block border h-8"></div>
+
             <button className="flex items-center justify-center gap-2 group bg-green-800 hover:bg-red-800 text-white font-bold py-2 px-3 rounded-full shadow-md duration-500">
               <i className="fa-solid fa-magnifying-glass"></i>
               {translations.buscar}
