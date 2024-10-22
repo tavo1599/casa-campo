@@ -60,7 +60,14 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start md:items-center gap-5 lg:items-baseline lg:gap-10 space-y-8 lg:space-y-0 px-4">
         {/* Logo y descripción */}
         <div className="flex-1 lg:min-w-64">
-          <h2 className="text-2xl font-bold mb-4">Casa Campo Arequipa</h2>
+          <div className="flex gap-2 items-center pb-4">
+            <img
+              className="h-auto w-14 sm:w-24"
+              src="/images/logo-arequipa-remove.png"
+              alt="--"
+            />
+            <h2 className="text-2xl font-bold">Casa Campo Arequipa</h2>
+          </div>
           <p className="text-gray-400 leading-relaxed">
             Ubicado en el corazón de Arequipa, Casa Campo Arequipa te brinda una
             experiencia única donde la naturaleza y el descanso se unen.
@@ -137,12 +144,8 @@ const Footer = () => {
                 <div className="flex items-start space-x-2 text-gray-400">
                   <i className="fas fa-comment text-gray-400 text-xl"></i>
                   <div>
-                    <p className="font-semibold ">
-                      Asistente virtual
-                    </p>
-                    <p className="text-sm">
-                      Te atenderá las 24 hrs
-                    </p>
+                    <p className="font-semibold ">Asistente virtual</p>
+                    <p className="text-sm">Te atenderá las 24 hrs</p>
                   </div>
                 </div>
 
