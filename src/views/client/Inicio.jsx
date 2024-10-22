@@ -145,21 +145,21 @@ export default function Inicio() {
           {/* <section className="pt-5 pb-5">
             <CabinCards />
           </section> */}
-          <section className="w-full h-auto flex flex-col items-center justify-center relative py-12 px-4">
+          <section className="w-full h-auto flex flex-col items-center justify-center relative py-12 sm:px-4">
             <main className="w-full flex flex-col gap-3 items-center justify-center">
               <h2 className="md:text-4xl text-2xl font-bold capitalize">
                 Paquetes disponibles
               </h2>
-              <p className="text-sm  font-light text-center">
+              <p className="text-sm font-light text-center">
                 Selecciona uno de nuestros paquetes para ver las cabañas disponibles
               </p>
 
-              <div className="w-full h-auto flex  lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-0 mt-4">
+              <div className="flex flex-wrap w-auto h-auto lg:gap-7 sm:gap-5 gap-2 px-0 sm:px-0 mt-4 justify-center items-center">
                 {packsTexts.map((service, index) => (
                   <Card
                     data-aos="flip-up"
                     key={index}
-                    cardClass="relative group w-full bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-700 overflow-hidden"
+                    cardClass="relative group w-[160px] bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-700 overflow-hidden"
                     imageWrapperClass="w-20 h-20 relative z-10 object-cover"
                     imageAlt={service.title}
                     imageSrc={service.img}
