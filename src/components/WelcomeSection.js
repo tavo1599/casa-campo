@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import backgroundImage from "../assets/casa-campo.jpg";
 import { LanguageContext } from "./LanguageContext";
 
 const WelcomeSection = () => {
@@ -24,7 +23,7 @@ const WelcomeSection = () => {
   return (
     <div
       className="relative w-full h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={{ backgroundImage: `url(/images/casa-campo.jpg)` }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div className="text-center text-white px-4">

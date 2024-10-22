@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import CabinDetail from "./components/CabinDetail";
 import DashboardLayout from "./pages/DashboardLayout"; // Importa DashboardLayout
 import Usuarios from "./components/Usuarios"; // Importa el componente Usuarios
 import "./index.css";
@@ -17,7 +15,9 @@ import { LanguageProvider } from "./components/LanguageContext";
 import Whasap from "./components/Whasap";
 
 import Inicio from "./views/client/Inicio";
+import CabinDetail from "./views/client/CabinDetail";
 import Navbar from "./views/client/partials/Navbar";
+import Footer from "./views/client/partials/Footer";
 
 function App() {
   return (

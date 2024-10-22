@@ -4,11 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import Header from "../../../components/Navbar/Header";
 import "../../../styles/ScrollPanel.css";
 import "../../../styles/flags.css";
-import { NavbarData } from "../../../components/Navbar/NavbarData";
-import NavbarLink from "../../../components/Navbar/NavbarLink";
 import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
-import { FaUniversity, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { LanguageContext } from "../../../components/LanguageContext";
 
 function Navbar(CartItem) {

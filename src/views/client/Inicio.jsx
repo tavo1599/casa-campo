@@ -5,7 +5,6 @@ import "../../styles/inicio.css";
 import { Card } from "../../components/Card";
 import ColoredSection from "../../components/Section/ColoredSection";
 import WelcomeSection from "../../components/WelcomeSection";
-import CabinCards from "../../components/CabinCards";
 import Contactanos from "../../components/Contactanos";
 import { LanguageContext } from "../../components/LanguageContext";
 import { useLocation } from "react-router-dom";
@@ -23,7 +22,7 @@ export default function Inicio() {
   useEffect(() => {
     const viewName = viewMap[location.pathname] || "Inicio"; // Vista por defecto
     setCurrentView(viewName);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, setCurrentView]);
 
   useEffect(() => {
@@ -104,14 +103,77 @@ export default function Inicio() {
     },
   ];
 
+  const packsTexts = [
+    {
+      img: "/icons/pareja.png",
+      title: "Pareja",
+      description: translations.wifi_gratuito_description, // Traducción dinámica
+    },
+    {
+      img: "/icons/familia.png",
+      title: "Familiar",
+      description: translations.vista_montana_description,
+    },
+    {
+      img: "/icons/completo.png",
+      title: "Completo",
+      description: translations.estacionamiento_description,
+    },
+    {
+      img: "/icons/casa_campo.png",
+      title: "Casa campo",
+      description: translations.seguridad_24_7_description,
+    },
+    {
+      img: "/icons/dia_campo.png",
+      title: "Día de campo",
+      description: translations.television_description,
+    },
+    {
+      img: "/icons/evento.png",
+      title: "Eventos",
+      description: translations.piscina_description,
+    }
+  ];
+
   return (
     <>
       <WelcomeSection />
 
       <div id="cabins">
         <ColoredSection backgroundColor="#F3F5F4">
-          <section className="pt-5 pb-5">
+          {/* <section className="pt-5 pb-5">
             <CabinCards />
+          </section> */}
+          <section className="w-full h-auto flex flex-col items-center justify-center relative py-12 px-4">
+            <main className="w-full flex flex-col gap-3 items-center justify-center">
+              <h2 className="md:text-4xl text-2xl font-bold capitalize">
+                Paquetes disponibles
+              </h2>
+              <p className="text-sm  font-light text-center">
+                Selecciona uno de nuestros paquetes para ver las cabañas disponibles
+              </p>
+
+              <div className="w-full h-auto flex  lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-0 mt-4">
+                {packsTexts.map((service, index) => (
+                  <Card
+                    data-aos="flip-up"
+                    key={index}
+                    cardClass="relative group w-full bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-700 overflow-hidden"
+                    imageWrapperClass="w-20 h-20 relative z-10 object-cover"
+                    imageAlt={service.title}
+                    imageSrc={service.img}
+                    textWrapperClass="w-full flex flex-col items-center gap-2"
+                  >
+                    <h4 className="text-base rounded font-semibold">
+                      {service.title}
+                    </h4>
+
+                    <div className="absolute top-2 px-1 py-1 bg-green-800 rounded-full group-hover:px-16 duration-500"></div>
+                  </Card>
+                ))}
+              </div>
+            </main>
           </section>
         </ColoredSection>
       </div>
@@ -128,7 +190,7 @@ export default function Inicio() {
                 </div>
               </div>
               <button
-                onClick={() => scrollToSection("about")}
+                onClick={() => scrollToSection("contact")}
                 className="px-6 py-3 flex items-center gap-2 bg-green-800 border hover:bg-white hover:text-red-700 hover:border-red-700 duration-500 rounded-lg text-sm whitespace-nowrap"
               >
                 <i className="fa-solid fa-phone"></i>
