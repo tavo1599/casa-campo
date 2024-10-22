@@ -1,4 +1,7 @@
 {
+  "General": {
+    "chatea": "Chatea con nosotros !!!"
+  },
   "CabinDetail": {
     "reserva_instancia": "Reserva tu estancia",
     "comentarios": "Comentarios",
@@ -12,7 +15,6 @@
     "nosotros": "Nosotros",
     "iniciar": "Iniciar Sesión",
     "registrarse": "Registrarse",
-    "chatea": "Chatea con nosotros !!!",
     "casa_campo_arequipa": "¡Casa Campo Arequipa!",
     "reservas": "Reservas",
     "donde_viviras_una_experiencia_inolvidable": "Donde vivirás una experiencia inolvidable",

@@ -2,6 +2,13 @@ import React, { useEffect, useRef, useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
 
 const Whasap = () => {
+  const { translations, setCurrentView } = useContext(LanguageContext);
+
+  useEffect(() => {
+    setCurrentView("General"); // Cambia "MyComponent" por el nombre de tu componente
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setCurrentView]);
+
   const botonRef = useRef(null);
 
   useEffect(() => {
@@ -11,9 +18,6 @@ const Whasap = () => {
     }
   }, []);
 
-  const { translations } = useContext(LanguageContext);
-  console.log(translations);
-  
   return (
     <div className="container-boton" ref={botonRef}>
       <a

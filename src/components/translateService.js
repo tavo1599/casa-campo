@@ -7,7 +7,7 @@ export const translateText = async (text, targetLang) => {
     const cachedTranslation = localStorage.getItem(localStorageKey);
 
     if (cachedTranslation) {
-      console.log(`Usando traducción en caché para "${text}" en ${targetLang}: ${cachedTranslation}`);
+      // console.log(`Usando traducción en caché para "${text}" en ${targetLang}: ${cachedTranslation}`);
       return cachedTranslation; // Retorna la traducción almacenada
     }
 
@@ -31,10 +31,10 @@ export const translateText = async (text, targetLang) => {
     // Verifica si el contenido es JSON antes de intentar parsearlo
     if (contentType && contentType.includes("application/json")) {
       const data = await response.json();
-      console.log("Respuesta completa de la API de MyMemory:", data);
+      // console.log("Respuesta completa de la API de MyMemory:", data);
 
       let translatedText = data.responseData.translatedText;
-      console.log(`Texto traducido: ${translatedText}`);
+      // console.log(`Texto traducido: ${translatedText}`);
 
       // Correcciones manuales
       if (text.toLowerCase() === "reservar" && targetLang === "en") {
