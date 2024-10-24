@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "axios": "^1.7.7",
     "country-list": "^2.3.0",
+    "flowbite-react": "^0.10.2",
     "i18next": "^23.15.1",
     "portada": "file:",
     "react": "^18.3.1",

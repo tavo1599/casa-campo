@@ -8,6 +8,8 @@ import WelcomeSection from "../../components/WelcomeSection";
 import Contactanos from "../../components/Contactanos";
 import { LanguageContext } from "../../components/LanguageContext";
 import { useLocation } from "react-router-dom";
+import { Button, Modal } from "flowbite-react";
+import CabinCards from './../../components/CabinCards';
 
 export default function Inicio() {
   const viewMap = {
@@ -18,6 +20,7 @@ export default function Inicio() {
   };
   const { translations, setCurrentView } = useContext(LanguageContext);
   const location = useLocation();
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const viewName = viewMap[location.pathname] || "Inicio"; // Vista por defecto
@@ -142,9 +145,6 @@ export default function Inicio() {
 
       <div id="cabins">
         <ColoredSection backgroundColor="#F3F5F4">
-          {/* <section className="pt-5 pb-5">
-            <CabinCards />
-          </section> */}
           <section className="w-full h-auto flex flex-col items-center justify-center relative py-12 px-4">
             <main className="w-full flex flex-col gap-3 items-center justify-center">
               <h2 className="md:text-4xl text-2xl font-bold capitalize">
@@ -154,12 +154,12 @@ export default function Inicio() {
                 Selecciona uno de nuestros paquetes para ver las cabañas disponibles
               </p>
 
-              <div className="w-full h-auto flex  lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-0 mt-4">
+              <div className="w-full h-auto flex flex-wrap justify-center lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-0 mt-4">
                 {packsTexts.map((service, index) => (
-                  <Card
+                  <Card onClick={() => setOpenModal(true)}
                     data-aos="flip-up"
                     key={index}
-                    cardClass="relative group w-full bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-700 overflow-hidden"
+                    cardClass="relative group w-40 bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-600 overflow-hidden"
                     imageWrapperClass="w-20 h-20 relative z-10 object-cover"
                     imageAlt={service.title}
                     imageSrc={service.img}
@@ -169,10 +169,23 @@ export default function Inicio() {
                       {service.title}
                     </h4>
 
-                    <div className="absolute top-2 px-1 py-1 bg-green-800 rounded-full group-hover:px-16 duration-500"></div>
+                    <div className="absolute top-2 px-1 py-1 bg-green-700 rounded-full group-hover:px-16 duration-500"></div>
                   </Card>
                 ))}
               </div>
+              <Modal size="4xl" show={openModal} onClose={() => setOpenModal(false)}>
+                <Modal.Header>Cabañas Disponibles</Modal.Header>
+                <Modal.Body>
+                  <div className="space-y-6">
+                    <CabinCards />
+                  </div>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button color="red" onClick={() => setOpenModal(false)}>
+                    Cancelar
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </main>
           </section>
         </ColoredSection>
@@ -191,7 +204,7 @@ export default function Inicio() {
               </div>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="px-6 py-3 flex items-center gap-2 bg-green-800 border hover:bg-white hover:text-red-700 hover:border-red-700 duration-500 rounded-lg text-sm whitespace-nowrap"
+                className="px-6 py-3 flex items-center gap-2 bg-green-600 border hover:bg-white hover:text-red-700 hover:border-red-700 duration-500 rounded-lg text-sm whitespace-nowrap"
               >
                 <i className="fa-solid fa-phone"></i>
                 <h1 className="m-0">{translations.contactanos}</h1>

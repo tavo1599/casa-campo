@@ -20,7 +20,8 @@ const CabinCards = () => {
   return (
     <div className="relative" ref={sectionRef}>
       <div className="container mx-auto relative z-10">
-        <div className="flex justify-center mb-8">
+
+        {/* <div className="flex justify-center mb-8">
           <div className="px-fecha-ES flex flex-col md:flex-row bg-white py-3 gap-4 md:rounded-full border shadow-lg w-full max-w-3xl items-center">
             <div className="flex gap-4 text-sm w-full items-center">
               <div className="flex flex-col md:flex-row items-center gap-2 w-full">
@@ -30,7 +31,7 @@ const CabinCards = () => {
                 <input
                   id="fecha_ingreso"
                   type="date"
-                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
+                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full text-sm"
                 />
               </div>
 
@@ -43,7 +44,7 @@ const CabinCards = () => {
                 <input
                   id="fecha_salida"
                   type="date"
-                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full"
+                  className="p-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-700 w-full text-sm"
                 />
               </div>
             </div>
@@ -55,7 +56,7 @@ const CabinCards = () => {
               {translations.buscar}
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 justify-center items-center">
           <div
@@ -76,10 +77,10 @@ const CabinCards = () => {
             <img
               src={cabana1}
               alt="Cabaña 1"
-              className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover"
+              className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover"
             />
-            <div className="p-4 text-center">
-              <h2 className="text-2xl lg:text-3xl font-bold font-serif">
+            <div className="p-2 text-center">
+              <h2 className="text-2xl font-bold">
                 Oak Cabin
               </h2>
             </div>
@@ -103,10 +104,10 @@ const CabinCards = () => {
             <img
               src={cabana2}
               alt="Cabaña 2"
-              className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover"
+              className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover"
             />
-            <div className="p-4 text-center">
-              <h2 className="text-2xl lg:text-3xl font-bold font-serif">
+            <div className="p-2 text-center">
+              <h2 className="text-2xl font-bold">
                 Maple Cabin
               </h2>
             </div>
