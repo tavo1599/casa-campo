@@ -1,19 +1,10 @@
-export const Card = ({ 
-    cardClass, 
-    imageWrapperClass, 
-    imageAlt, 
-    imageSrc, 
-    textWrapperClass, 
-    children, 
-    cover, 
-    ...rest 
+export const Card = ({
+    children,
+    ...rest
 }) => {
     return (
-        <div className={cardClass} {...rest}>
-            <img className={imageWrapperClass} alt={imageAlt} src={imageSrc} />
-            <div className={textWrapperClass}>
-                {children}
-            </div>
+        <div className="h-max p-4 bg-white rounded-xl shadow-md border" {...rest}>
+            {children}
         </div>
     );
 };

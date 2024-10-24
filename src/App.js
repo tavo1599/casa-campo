@@ -8,7 +8,6 @@ import {
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DashboardLayout from "./pages/DashboardLayout"; // Importa DashboardLayout
-import Usuarios from "./components/Usuarios"; // Importa el componente Usuarios
 import "./index.css";
 import Cabanas from "./components/Cabanas";
 import Promociones from "./components/Promociones";
@@ -23,6 +22,7 @@ import Inicio from "./views/client/Inicio";
 import CabinDetail from "./views/client/CabinDetail";
 import Navbar from "./views/client/partials/Navbar";
 import Footer from "./views/client/partials/Footer";
+import Usuarios from "./views/admin/Usuarios";
 
 function Layout({ children }) {
   const location = useLocation();
