@@ -14,6 +14,7 @@ const WelcomeSection = () => {
     }, 5000);
 
     return () => clearInterval(slideInterval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSlide]);
 
   const changeSlide = (newDirection, targetSlide = null) => {
