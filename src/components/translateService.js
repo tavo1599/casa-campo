@@ -12,7 +12,7 @@ export const translateText = async (text, targetLang) => {
     }
 
     // Si no está almacenada, procede con la solicitud a la API
-    const url = `/get?q=${encodeURIComponent(text)}&langpair=es|${encodeURIComponent(targetLang)}&key=3ab2e517522735c31b0a`;
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=es|${encodeURIComponent(targetLang)}&key=3ab2e517522735c31b0a`;
     
     const response = await fetch(url, {
       method: "GET",

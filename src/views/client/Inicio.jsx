@@ -150,7 +150,7 @@ export default function Inicio() {
               <h2 className="md:text-4xl text-2xl font-bold capitalize">
                 Paquetes disponibles
               </h2>
-              <p className="text-sm  font-light text-center">
+              <p className="text-sm font-light text-center">
                 Selecciona uno de nuestros paquetes para ver las cabañas disponibles
               </p>
 

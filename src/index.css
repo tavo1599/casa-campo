@@ -92,7 +92,7 @@ footer {
     rgba(153, 27, 27, 0.74),
     rgba(255, 255, 255, 0.1)
   );
-  background-image: url('/public/images/fondo-01.jpeg'); /*Asegúrate de que la ruta sea correcta */
+  /* background-image: url('/public/images/fondo-01.jpeg'); Asegúrate de que la ruta sea correcta */
   background-size: cover; /* Ajusta la imagen para que cubra todo el footer */
   background-position: center; /* Centra la imagen */
   position: relative; /* Necesario para el pseudo-elemento */
