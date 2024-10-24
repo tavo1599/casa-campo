@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { Button, Table } from "flowbite-react";
 import { Card } from "../../components/Card";
 
 const Usuarios = () => {
@@ -51,7 +50,7 @@ const Usuarios = () => {
         </div>
         
         <div className="overflow-x-auto border rounded-xl">
-          <table class="w-full text-left table-auto min-w-max text-sm">
+          <table className="w-full text-left table-auto min-w-max text-sm">
             <thead className="bg-gray-200">
               <tr>
                 <th className="p-3 font-normal">ID</th>
