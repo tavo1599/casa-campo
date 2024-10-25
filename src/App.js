@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,6 +17,7 @@ import SocialMediaIcons from "./components/SocialMediaIcons";
 import PaymentPage from "./components/PaymentPage";
 import { LanguageProvider } from "./components/LanguageContext";
 import Whasap from "./components/Whasap";
+import Loader from "./components/Loader"; // Importa el componente Loader
 
 import Inicio from "./views/client/Inicio";
 import CabinDetail from "./views/client/CabinDetail";
@@ -40,10 +41,22 @@ function Layout({ children }) {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true); // Estado para controlar el cargador
+
+  useEffect(() => {
+    // Simulación de carga (puedes reemplazar esto con tu lógica real)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Cargar durante 2 segundos
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <LanguageProvider>
       <Router>
         <div className="App">
+          {loading && <Loader />} {/* Muestra el cargador si está cargando */}
           <Layout>
             {/* Rutas de las páginas */}
             <Routes>

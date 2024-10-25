@@ -1,5 +1,8 @@
 {
   "General": {
+    "inicio": "Inicio",
+    "nosotros": "Nosotros",
+    "contactanos": "Contáctanos",
     "chatea": "Chatea con nosotros !!!"
   },
   "CabinDetail": {
