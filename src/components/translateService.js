@@ -10,20 +10,20 @@ export const translateText = async (text, targetLang) => {
       // console.log(`Usando traducción en caché para "${text}" en ${targetLang}: ${cachedTranslation}`);
       return cachedTranslation; // Retorna la traducción almacenada
     }
-
-    // Si no está almacenada, procede con la solicitud a la API
-    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=es|${encodeURIComponent(targetLang)}&key=3ab2e517522735c31b0a`;
     
-    const response = await fetch(url, {
-      method: "GET",
+    const response = await fetch(`http://44.201.171.104/translate`, {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: text, targetLang }),
     });
 
     // Verificamos que la respuesta sea exitosa
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Error en la respuesta del servidor:", errorText);
-      throw new Error(`La API devolvió un estado de error: ${response.status} - ${response.statusText}`);
+      throw new Error(
+        `La API devolvió un estado de error: ${response.status} - ${response.statusText}`
+      );
     }
 
     const contentType = response.headers.get("content-type");
@@ -33,8 +33,8 @@ export const translateText = async (text, targetLang) => {
       const data = await response.json();
       // console.log("Respuesta completa de la API de MyMemory:", data);
 
-      let translatedText = data.responseData.translatedText;
-      // console.log(`Texto traducido: ${translatedText}`);
+      let translatedText = data.translatedText;
+      // console.log(`Traducción de "${text}" a "${targetLang}": ${translatedText}`);
 
       // Correcciones manuales
       if (text.toLowerCase() === "reservar" && targetLang === "en") {
@@ -57,7 +57,9 @@ export const translateText = async (text, targetLang) => {
     } else {
       const textResponse = await response.text(); // Captura la respuesta como texto
       console.error("La respuesta no es JSON:", textResponse);
-      throw new Error("La API no devolvió un formato JSON válido. Respuesta: " + textResponse);
+      throw new Error(
+        "La API no devolvió un formato JSON válido. Respuesta: " + textResponse
+      );
     }
   } catch (error) {
     console.error("Error en la traducción:", error);
