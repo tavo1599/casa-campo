@@ -9,7 +9,7 @@ import Contactanos from "../../components/Contactanos";
 import { LanguageContext } from "../../components/LanguageContext";
 import { useLocation } from "react-router-dom";
 import { Button, Modal } from "flowbite-react";
-import CabinCards from './../../components/CabinCards';
+import CabinCards from "./../../components/CabinCards";
 
 export default function Inicio() {
   const viewMap = {
@@ -51,14 +51,14 @@ export default function Inicio() {
   };
 
   const images = [
-    { src: "/images/lake-image.jpg", alt: "Lago con montañas y cabaña" },
+    { src: "/images/cc_04.jpg", alt: "Lago con montañas y cabaña" },
     {
-      src: "/images/mountain-image.jpg",
+      src: "/images/cc_02.jpg",
       alt: "Persona frente a montaña nevada",
     },
-    { src: "/images/campfire-image.jpg", alt: "Grupo alrededor de una fogata" },
+    { src: "/images/cc_01.jpg", alt: "Grupo alrededor de una fogata" },
     {
-      src: "/images/forest-image.jpg",
+      src: "/images/cc_03.jpg",
       alt: "Persona con chaqueta amarilla en bosque",
     },
   ];
@@ -136,7 +136,7 @@ export default function Inicio() {
       img: "/icons/evento.png",
       title: "Eventos",
       description: translations.piscina_description,
-    }
+    },
   ];
 
   return (
@@ -151,12 +151,14 @@ export default function Inicio() {
                 Paquetes disponibles
               </h2>
               <p className="text-sm font-light text-center">
-                Selecciona uno de nuestros paquetes para ver las cabañas disponibles
+                Selecciona uno de nuestros paquetes para ver las cabañas
+                disponibles
               </p>
 
               <div className="w-full h-auto flex flex-wrap justify-center lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-0 mt-4">
                 {packsTexts.map((service, index) => (
-                  <CardInicio onClick={() => setOpenModal(true)}
+                  <CardInicio
+                    onClick={() => setOpenModal(true)}
                     data-aos="flip-up"
                     key={index}
                     cardClass="relative group w-40 bg-white flex flex-col items-center justify-center gap-3 px-5 pb-5 pt-8 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-green-600 overflow-hidden"
@@ -173,7 +175,11 @@ export default function Inicio() {
                   </CardInicio>
                 ))}
               </div>
-              <Modal size="4xl" show={openModal} onClose={() => setOpenModal(false)}>
+              <Modal
+                size="4xl"
+                show={openModal}
+                onClose={() => setOpenModal(false)}
+              >
                 <Modal.Header>Cabañas Disponibles</Modal.Header>
                 <Modal.Body>
                   <div className="space-y-6">
