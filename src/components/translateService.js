@@ -20,7 +20,7 @@ export const translateText = async (texts, targetLang) => {
           return cachedTranslation; // Retorna la traducción almacenada
         }
 
-        const response = await axios.get(`http://44.201.171.104/translate?texts=${JSON.stringify([text])}&targetLang=${targetLang}`);
+        const response = await axios.get(`http://3.85.56.160/translate?texts=${JSON.stringify([text])}&targetLang=${targetLang}`);
 
         console.log("Resultados de traducción:");
 
