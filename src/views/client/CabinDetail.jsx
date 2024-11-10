@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
+import axios from "axios"
 import { LanguageContext } from "../../components/LanguageContext";
 import ColoredSection from "../../components/Section/ColoredSection";
 import { FaUser } from "react-icons/fa";
+import { API_URL } from "../../env";
+
 
 const CabinDetail = () => {
   const comments = [
@@ -37,10 +40,31 @@ const CabinDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const cabin = location.state?.cabin || {};
+  console.log(cabin)
   const [dates, setDates] = useState([new Date(), new Date()]);
   const [guests, setGuests] = useState({ adults: 1, children: 0, babies: 0 });
   const [promoCode, setPromoCode] = useState("");
   const [isGuestDropdownOpen, setIsGuestDropdownOpen] = useState(false);
+  const [data, setData] = useState()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState()
+
+  useEffect(()=>{
+    if (cabin) {
+      setLoading(true)
+      axios.get( `${API_URL}/reservation`, {params: { cottage_id: cabin.cottage_id },})
+      .then((resp)=> {
+        setData(resp.data)
+      }).catch(error=> {
+        setError(error)
+      })
+      .finally(
+        ()=> {
+          setLoading(false)
+        }
+      )
+    }
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,16 +82,18 @@ const CabinDetail = () => {
   const numberOfNights = (dates[1] - dates[0]) / (1000 * 60 * 60 * 24);
 
   const tileClassName = ({ date, view }) => {
-    if (view === "month") {
-      const isStartDate =
-        dates[0] && date.toDateString() === dates[0].toDateString();
-      const isEndDate =
-        dates[1] && date.toDateString() === dates[1].toDateString();
-      const isWithinRange =
-        dates[0] && dates[1] && date >= dates[0] && date <= dates[1];
+    if (view === "month" && data?.reservations) {
+      for (const reservation of data?.reservations) {
+        const startDate = new Date(reservation.date_start);
+        const endDate = new Date(reservation.date_end);
 
-      if (isStartDate || isEndDate || isWithinRange) {
-        return "bg-orange-700 text-white rounded-lg";
+        const isStartDate = startDate.toDateString() === date.toDateString();
+        const isEndDate = endDate.toDateString() === date.toDateString();
+        const isWithinRange = date >= startDate && date <= endDate;
+
+        if (isStartDate || isEndDate || isWithinRange) {
+          return "bg-gray-500 text-white rounded-lg";
+        }
       }
     }
     return "";
@@ -116,7 +142,7 @@ const CabinDetail = () => {
                 <p className="text-gray-600"> {cabin.baths} Baños</p>
               </div>
               <p className="text-gray-800 my-12">
-                Descripción de la cabaña aquí...
+              {cabin.description}
               </p>
             </div>
           </div>
